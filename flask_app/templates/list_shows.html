@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Shows</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Howdy {{ user.first_name }}!</h1>
+        <h4>All TV Shows:</h4>
+        <table class="table table-dark table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Network</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for show in show_list %}
+                <tr>
+                    <th scope="row">{{show.title}}</th>
+                    <td>{{show.network}}</td>
+                    <td data-format="yyyy-MM-dd">{{show.release_date}}</td>
+                    {% if show.poster_id == session['user_id'] %}
+                    <td><a href="/shows/view/{{show.id}}">show</a> | <a href="/shows/edit/{{show.id}}">edit</a> | <a href="/shows/delete/{{show.id}}">delete</a></td>
+                    {% else %}
+                    <td><a href="/shows/view/{{show.id}}">show</a></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/shows/new">+ Create</a> | <a href="/users/logout">logout</a>
+    </div>
+</body>
+</html>

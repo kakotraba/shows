@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>TV Shows</title>
+</head>
+<body>
+    <div class="container">
+        <h1>{{show.title}}</h1>
+        <table class="table table-striped table-dark">
+            <tbody>
+                <tr>
+                    <th>Network:</th>
+                    <td>{{show.network}}</td>
+                </tr>
+                <tr>
+                    <th>Release Date:</th>
+                    <td data-date-format="mm/dd/yyyy">{{show.release_date}}</td>
+                </tr>
+                <tr>
+                    <th>Description:</th>
+                    <td>{{show.description}}</td>
+                </tr>
+                <tr>
+                    <th>Posted By:</th>
+                    <td>{{show.poster_first}} {{show.poster_last}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/shows/list">TV Shows</a> | <a href="/users/logout">logout</a>
+    </div>
+</body>
+</html>
